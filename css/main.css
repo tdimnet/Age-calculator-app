@@ -1,3 +1,17 @@
+:root {
+  --electric-violet: #854DFF;
+  --persimmon: #FF5757;
+  --white: #FFF;
+  --gallery: #F0F0F0;
+  --alto: #DBDBDB;
+  --dove-gray: #716F6F;
+  --cold-gray: #141414;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 h1 {
-  color: tomato;
+  color: var(--electric-violet);
 }
