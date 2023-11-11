@@ -17,6 +17,10 @@ body {
   background-color: var(--gallery);
 }
 
+.form-wrapper {
+  margin-bottom: 2rem;
+}
+
 .main-wrapper {
   background-color: var(--white);
   width: 90%;
@@ -56,6 +60,19 @@ body {
   color: var(--cold-gray);
 }
 
-h1 {
-  color: var(--electric-violet);
+.result-wrapper {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.year-result,
+.month-result,
+.day-result {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 800;
+
+  span {
+    color: var(--electric-violet);
+  }
 }
