@@ -1,11 +1,11 @@
 :root {
+  --alto: #DBDBDB;
+  --cold-gray: #141414;
+  --dove-gray: #716F6F;
   --electric-violet: #854DFF;
+  --gallery: #F0F0F0;
   --persimmon: #FF5757;
   --white: #FFF;
-  --gallery: #F0F0F0;
-  --alto: #DBDBDB;
-  --dove-gray: #716F6F;
-  --cold-gray: #141414;
 }
 
 * {
@@ -13,8 +13,8 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   background-color: var(--gallery);
+  font-family: 'Poppins', sans-serif;
 }
 
 .form-wrapper {
@@ -23,19 +23,19 @@ body {
 
 .main-wrapper {
   background-color: var(--white);
-  width: 90%;
+  border-radius: 2rem 2rem 5rem 2rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
   padding: 2rem 1.5rem;
-  border-radius: 2rem 2rem 5rem 2rem;
+  width: 90%;
 }
 
 .form-groups-wrapper {
-  margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 2rem;
 }
 
 .form-group {
@@ -45,19 +45,19 @@ body {
 
 .form-label {
   color: var(--dove-gray);
-  text-transform: uppercase;
+  font-size: 0.75rem;
   letter-spacing: 0.25rem;
   margin-bottom: 0.25rem;
-  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
 .form-input {
-  padding: 0.5rem;
   border-radius: 0.5rem;
-  outline: none;
   border: 1px solid var(--alto);
-  font-size: 1.25rem;
   color: var(--cold-gray);
+  font-size: 1.25rem;
+  outline: none;
+  padding: 0.5rem;
 }
 
 .result-wrapper {
