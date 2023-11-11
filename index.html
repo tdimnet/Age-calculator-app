@@ -19,8 +19,38 @@
   <title>Frontend Mentor | Age calculator app</title>
 </head>
 <body>
-  <main>
-    <h1>Hello, World!</h1>
+  <main class="main-wrapper">
+    <form>
+      <div class="form-group">
+        <label for="day">Day</label>
+        <input id="day" name="day" placeholder="24" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="month">Month</label>
+        <input id="month" name="month" placeholder="09" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input id="year" name="year" placeholder="1984" type="text" />
+      </div>
+      <div class="submit-wrapper">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <ul class="result-wrapper">
+      <li class="year-result">
+        <span class="year-number">38</span>
+        years
+      </li>
+      <li class="month-result">
+        <span class="month-number">3</span>
+        months
+      </li>
+      <li class="day-result">
+        <span class="day-number">26</span>
+        days
+      </li>
+    </ul>
   </main>
 
   <script src="./js/app.js"></script>

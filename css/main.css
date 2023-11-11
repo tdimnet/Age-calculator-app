@@ -10,7 +10,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: var(--gallery);
 }
+
+.main-wrapper {
+  background-color: var(--white);
+}
+
 
 h1 {
   color: var(--electric-violet);
