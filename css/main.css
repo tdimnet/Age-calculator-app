@@ -8,6 +8,10 @@
   --cold-gray: #141414;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--gallery);
@@ -15,8 +19,28 @@ body {
 
 .main-wrapper {
   background-color: var(--white);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem 2rem 5rem 2rem;
 }
 
+.form-groups-wrapper {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  color: var(--dove-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
 
 h1 {
   color: var(--electric-violet);
