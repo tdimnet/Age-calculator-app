@@ -1,29 +1,38 @@
-function isDayFieldValid() {
-  const $dayInputField = document.querySelector('#day')
-  const dayInputValue = $dayInputField.value
+/**
+ * 
+ * @param {Element} domNode 
+ */
+function displayErrorMessage(domNode) {
+  domNode.parentElement.classList.add('has-error')
+  domNode.nextElementSibling.classList.remove('hidden')
+}
 
-  const isInputInvalid = isNaN(dayInputValue) || dayInputValue <= 0 || dayInputValue > 31
+function isDayFieldValid() {
+  const $dayInputField = document.querySelector("#day");
+  const dayInputValue = $dayInputField.value;
+
+  const isInputInvalid =
+    isNaN(dayInputValue) || dayInputValue <= 0 || dayInputValue > 31;
 
   if (isInputInvalid) {
-    console.log('invalid')
+    displayErrorMessage($dayInputField)
   } else {
-    console.log('valid')
+    console.log("valid");
   }
 }
 
 function onSubmitForm() {
-  const $form = document.querySelector('.form')
+  const $form = document.querySelector(".form");
 
-  $form.addEventListener('submit', function(e) {
-    e.preventDefault()
+  $form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    isDayFieldValid()
-  })
+    isDayFieldValid();
+  });
 }
 
 function main() {
-  onSubmitForm()
+  onSubmitForm();
 }
 
-main()
-
+main();
