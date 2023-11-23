@@ -24,6 +24,10 @@ body {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 .form-wrapper {
   margin-bottom: 2rem;
 }
@@ -57,6 +61,16 @@ body {
   flex-direction: column;
 }
 
+.form-group.has-error {
+  .form-label {
+    color: var(--persimmon);
+  }
+
+  .form-input {
+    border-color: var(--persimmon);
+  }
+}
+
 .form-label {
   color: var(--dove-gray);
   font-size: 0.75rem;
@@ -76,6 +90,12 @@ body {
   @media screen and (min-width: 768px) {
     max-width: 150px;
   }
+}
+
+.error-message {
+  color: var(--persimmon);
+  font-size: .75rem;
+  font-style: italic;
 }
 
 .submit-wrapper {
