@@ -21,7 +21,7 @@ function hideErrorMessage(domNode) {
 
 /**
  *
- * @returns {boolean}
+ * @returns {[boolean, string]}
  */
 function isDayFieldValid() {
   let isValid;
@@ -44,12 +44,12 @@ function isDayFieldValid() {
     isValid = true;
   }
 
-  return isValid;
+  return [isValid, dayInputValue];
 }
 
 /**
  *
- * @returns {boolean}
+ * @returns {[boolean, string]}
  */
 function isMonthFieldValid() {
   let isValid;
@@ -72,7 +72,46 @@ function isMonthFieldValid() {
     isValid = true;
   }
 
-  return isValid;
+  return [isValid, monthInputValue];
+}
+
+/**
+ *
+ * @returns {[boolean, string]}
+ */
+function isYearFieldValid() {
+  let isValid;
+
+  const $yearInputField = document.querySelector("#year");
+  const yearInputValue = $yearInputField.value;
+
+  const isInputEmpty = yearInputValue.length === 0;
+  const isInputInvalid =
+    isNaN(yearInputValue) || yearInputValue <= 1900 || yearInputValue > 2023;
+
+  if (isInputEmpty) {
+    displayErrorMessage($yearInputField, "This field is required.");
+    isValid = false;
+  } else if (isInputInvalid) {
+    displayErrorMessage($yearInputField, "Must be a valid year.");
+    isValid = false;
+  } else {
+    hideErrorMessage($yearInputField);
+    isValid = true;
+  }
+
+  return [isValid, yearInputValue];
+}
+
+/**
+ * 
+ * @param {string} day 
+ * @param {string} month 
+ * @param {string} year 
+ */
+function makeCaculation(day, month, year) {
+  console.log("Make caculation")
+  console.log(day, month, year)
 }
 
 function onSubmitForm() {
@@ -81,8 +120,13 @@ function onSubmitForm() {
   $form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const isDayValid = isDayFieldValid();
-    const isMonthValid = isMonthFieldValid();
+    const [isDayValid, dayFieldValue] = isDayFieldValid();
+    const [isMonthValid, monthFieldValue] = isMonthFieldValid();
+    const [isYearValid, yearFieldValue] = isYearFieldValid();
+
+    if (isDayValid && isMonthValid && isYearValid) {
+      makeCaculation(dayFieldValue, monthFieldValue, yearFieldValue)
+    }
   });
 }
 
