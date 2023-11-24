@@ -1,34 +1,78 @@
 /**
- * 
- * @param {Element} domNode 
+ *
+ * @param {Element} domNode
  * @param {string} errorMsg
- * 
- * @returns {boolean}
  */
 function displayErrorMessage(domNode, errorMsg) {
-  domNode.parentElement.classList.add('has-error')
-  domNode.nextElementSibling.classList.remove('hidden')
-  domNode.nextElementSibling.textContent = errorMsg
+  domNode.parentElement.classList.add("has-error");
+  domNode.nextElementSibling.classList.remove("hidden");
+  domNode.nextElementSibling.textContent = errorMsg;
 }
 
+/**
+ *
+ * @param {Element} domNode
+ */
+function hideErrorMessage(domNode) {
+  domNode.parentElement.classList.remove("has-error");
+  domNode.nextElementSibling.classList.add("hidden");
+  domNode.nextElementSibling.textContent = "";
+}
+
+/**
+ *
+ * @returns {boolean}
+ */
 function isDayFieldValid() {
-  let isValid = Boolean
+  let isValid;
 
   const $dayInputField = document.querySelector("#day");
   const dayInputValue = $dayInputField.value;
 
+  const isInputEmpty = dayInputValue.length === 0;
   const isInputInvalid =
     isNaN(dayInputValue) || dayInputValue <= 0 || dayInputValue > 31;
 
-  if (isInputInvalid) {
-    displayErrorMessage($dayInputField, 'Must be a valid day.')
-    isValid = false
+  if (isInputEmpty) {
+    displayErrorMessage($dayInputField, "This field is required.");
+    isValid = false;
+  } else if (isInputInvalid) {
+    displayErrorMessage($dayInputField, "Must be a valid day.");
+    isValid = false;
   } else {
-    console.log("valid");
-    isValid = true
+    hideErrorMessage($dayInputField);
+    isValid = true;
   }
 
-  return isValid
+  return isValid;
+}
+
+/**
+ *
+ * @returns {boolean}
+ */
+function isMonthFieldValid() {
+  let isValid;
+
+  const $monthInputField = document.querySelector("#month");
+  const monthInputValue = $monthInputField.value;
+
+  const isInputEmpty = monthInputValue.length === 0;
+  const isInputInvalid =
+    isNaN(monthInputValue) || monthInputValue <= 0 || monthInputValue > 12;
+
+  if (isInputEmpty) {
+    displayErrorMessage($monthInputField, "This field is required.");
+    isValid = false;
+  } else if (isInputInvalid) {
+    displayErrorMessage($monthInputField, "Must be a valid month.");
+    isValid = false;
+  } else {
+    hideErrorMessage($monthInputField);
+    isValid = true;
+  }
+
+  return isValid;
 }
 
 function onSubmitForm() {
@@ -38,6 +82,7 @@ function onSubmitForm() {
     e.preventDefault();
 
     const isDayValid = isDayFieldValid();
+    const isMonthValid = isMonthFieldValid();
   });
 }
 
