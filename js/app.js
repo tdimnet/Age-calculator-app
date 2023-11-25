@@ -104,22 +104,41 @@ function isYearFieldValid() {
 }
 
 /**
- * 
- * @param {string} day 
- * @param {string} month 
- * @param {string} year 
+ *
+ * @param {string} day
+ * @param {string} month
+ * @param {string} year
  */
 function makeCaculation(day, month, year) {
-  console.log("Make caculation")
-  console.log(day, month, year)
+  const birthDay = parseInt(day);
+  const birthMonth = parseInt(month);
+  const birthYear = parseInt(year);
 
-  const birthdate = new Date(`${year}/${month}/${day}`)
-  const today = new Date()
-  const diff = today - birthdate
+  const currentDate = new Date();
+  const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
 
-  const age = Math.floor(diff / 31557600000)
+  const ageInYears = currentDate.getFullYear() - birthDate.getFullYear();
 
-  console.log(age)
+  const currentMonth = currentDate.getMonth() + 1;
+  const birthMonthAdjusted = birthDate.getMonth() + 1;
+
+  let ageInMonths = currentMonth - birthMonthAdjusted;
+
+  if (currentDate.getDate() < birthDate.getDate()) {
+    ageInMonths--;
+  }
+
+  if (ageInMonths < 0) {
+    ageInMonths += 12;
+  }
+
+  const ageInDays = currentDate.getDate() - birthDate.getDate();
+
+  return {
+    ageInYears,
+    ageInMonths,
+    ageInDays
+  }
 }
 
 function onSubmitForm() {
@@ -133,7 +152,9 @@ function onSubmitForm() {
     const [isYearValid, yearFieldValue] = isYearFieldValid();
 
     if (isDayValid && isMonthValid && isYearValid) {
-      makeCaculation(dayFieldValue, monthFieldValue, yearFieldValue)
+      const {
+        ageInYears, ageInMonths, ageInDays
+      } = makeCaculation(dayFieldValue, monthFieldValue, yearFieldValue);
     }
   });
 }
