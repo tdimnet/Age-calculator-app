@@ -137,8 +137,8 @@ function makeCaculation(day, month, year) {
   return {
     ageInYears,
     ageInMonths,
-    ageInDays
-  }
+    ageInDays,
+  };
 }
 
 function onSubmitForm() {
@@ -152,9 +152,11 @@ function onSubmitForm() {
     const [isYearValid, yearFieldValue] = isYearFieldValid();
 
     if (isDayValid && isMonthValid && isYearValid) {
-      const {
-        ageInYears, ageInMonths, ageInDays
-      } = makeCaculation(dayFieldValue, monthFieldValue, yearFieldValue);
+      const { ageInYears, ageInMonths, ageInDays } = makeCaculation(
+        dayFieldValue,
+        monthFieldValue,
+        yearFieldValue
+      );
     }
   });
 }
