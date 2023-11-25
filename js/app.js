@@ -112,6 +112,14 @@ function isYearFieldValid() {
 function makeCaculation(day, month, year) {
   console.log("Make caculation")
   console.log(day, month, year)
+
+  const birthdate = new Date(`${year}/${month}/${day}`)
+  const today = new Date()
+  const diff = today - birthdate
+
+  const age = Math.floor(diff / 31557600000)
+
+  console.log(age)
 }
 
 function onSubmitForm() {
