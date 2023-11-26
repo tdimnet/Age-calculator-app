@@ -141,6 +141,22 @@ function makeCaculation(day, month, year) {
   };
 }
 
+/**
+ * 
+ * @param {number} ageInYears 
+ * @param {number} ageInMonths 
+ * @param {number} ageInDays 
+ */
+function displayAge(ageInYears, ageInMonths, ageInDays) {
+  const $yearNumber = document.querySelector('.year-number')
+  const $monthNumber = document.querySelector('.month-number')
+  const $dayNumber = document.querySelector('.day-number')
+
+  $yearNumber.textContent = ageInYears
+  $monthNumber.textContent = ageInMonths
+  $dayNumber.textContent = ageInDays
+}
+
 function onSubmitForm() {
   const $form = document.querySelector(".form");
 
@@ -157,6 +173,8 @@ function onSubmitForm() {
         monthFieldValue,
         yearFieldValue
       );
+
+      displayAge(ageInYears, ageInMonths, ageInDays)
     }
   });
 }
